@@ -101,7 +101,26 @@ function averageWordLength(words) {
 
 
 // Bonus - Iteration #4.3
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length === 0){
+    return null
+  }
+
+  let totalLtrs = 0
+  
+  for (let i = 0; i < mixedArr.length ; i++){
+    if (typeof mixedArr[i] === "boolean"){
+      if (mixedArr[i] === true){
+        totalLtrs += 1
+      }
+    } else if(typeof mixedArr[i] === 'number' ){
+      totalLtrs += mixedArr[i]
+    } else if (typeof mixedArr[i] === 'string'){
+      totalLtrs += mixedArr[i].length
+    } 
+  }
+  return totalLtrs / mixedArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -139,7 +158,16 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.length === 0){
+    return null
+  }
+  if (wordsFind.includes(word)){
+    return true
+  } else {
+    return false
+  }
+ }
 
 
 
@@ -158,7 +186,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  
+  let totalCount = 0  
+
+  if(wordsCount.length === 0){
+    return 0
+  }
+  
+  for (let i = 0; i < wordsCount.length; i++){
+    
+    if (wordsCount[i] === word){
+      totalCount += 1     
+    }
+  }
+  return totalCount
+}
 
 
 
